@@ -1,0 +1,32 @@
+@import "tailwindcss";
+/* styles/globals.css or component-level CSS */
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+
+
+body {
+ 
+  color: var(--foreground);
+  font-family: var(--font-bungee);
+  overflow-x: hidden; /* prevent horizontal scroll */
+  margin: 0;
+  padding: 0;
+   overscroll-behavior: none; 
+}
+/* hide scrollbar but keep scrolling */
+.no-scrollbar {
+  -ms-overflow-style: none;  /* IE & Edge */
+  scrollbar-width: none;      /* Firefox */
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
+}
+
