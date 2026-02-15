@@ -126,6 +126,7 @@ export default function RootLayout({ children }) {
         {children}
         <footer className="text-xl text-black font-bold border border-black/20 p-3 rounded-xl ">
           © 2026 Luxeallus Web Portal. All rights reserved.
+          Under Development
         </footer>
       </body>
     </html>

@@ -59,7 +59,7 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
   return (
     <main className="overflow-x-hidden overflow-y-hidden" style={{ scrollBehavior: 'smooth' }}> 
      <motion.div
-        className="md:h-[90vh] h-[130vh] w-full flex flex-col md:flex-row"
+        className="md:h-[90vh] h-[125vh] w-full flex flex-col md:flex-row"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
@@ -109,7 +109,7 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
       </motion.div>
       <section className="md:h-[170vh] h-[400vh] ">
         <motion.div
-          className="w-[100vw] md:h-[5vh] h-[2vh] flex justify-center items-end p-5 pb-0 md:p-0"
+          className="w-[100vw] md:h-[5vh] h-[2vh] flex justify-center items-end p-5 pb-0 md:p-0 text-center" 
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
