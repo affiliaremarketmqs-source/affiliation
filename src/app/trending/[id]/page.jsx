@@ -57,8 +57,8 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
   }
 
   return (
-    <main>
-      <section className="md:h-[170vh] h-[440vh]">
+    <main className="overflow-x-hidden"> 
+      <section className="md:h-[170vh] h-[405vh] ">
         <motion.div
           className="w-[100vw] md:h-[15vh] h-[32vh] flex justify-center items-end p-5 pb-0 md:p-0"
           initial={{ opacity: 0, y: -50 }}
