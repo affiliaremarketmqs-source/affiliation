@@ -5,6 +5,29 @@ const {id} = await params;
 let product;
 if ( id === "1" ){
     product = {
+        Heading:`🌸What You Will Love about Having This Set of Pipe Cleaners`,
+        Text1 : `If you like to make things with your hands, or if you need to find something to do without electronics that is also fun for your children, then you will really enjoy this pipe cleaner set. There are 500 pipe cleaners in a package, so you will never feel like you are “saving” any materials. You can create and experiment, be able to get to know what you like and don’t like, and try different things without worrying about running out of your supply (the pipe cleaners) to experiment with!
+
+These pipe cleaners are very soft, they are colourful, and they are very flexible (able to be bent and twisted), so they make it easy and relaxing to create anything. Use these pipe cleaners to decorate your home, complete a project for your child’s school, or as a creative hobby (endless ideas) without needing tools or specialty skills necessary.
+
+Another great thing about the pipe cleaners is that you only have to buy them once, and you will continue using them time after time for different ideas, seasons and projects.
+
+`,
+        Handmade:'/handmade.png',
+        pipecleaner:'/pipecleaner.png',
+        Benefits:'🌼Benefits That You Will Actually See',
+        BeDescription : `Crafting is Easy!
+You do not have to be an expert at crafting; You just need to be able to twist and bend!
+
+A great Crafting Tool for Kids & Adults
+Kids love the vibrant colors and the soft texture. Adults enjoy how therapeutic and stress-free it is to create.
+
+Creative Crafting on a Budget! There are many different types of flowers, decorations that you can use to create crafts that will be affordable!`,
+        Usage:'🌼 How Easy It Is To Use Them',
+        Using:`It will take you no more than a few minutes to create one of these pipe cleaner flowers. Twist it and shape it, and there is nothing else. No directions will need to be followed and you won't even feel the pressure from trying to make it look a certain way or "perfect." Each flower you make will come out unique - that why it looks even better.
+`,
+        Tip:'💡 Genuine Tip',
+        Tipdes:'These crafts are at their best when you stop trying to create "perfect" crafts. Combine colours, let yourself be creative and have fun. The charm of these crafts is that every hand made item has been created uniquely!',
         title : 'Pipe Cleaner Flower ',
         description: '500Pcs Pipe Cleaners Twisting Sticks Soft Chenille Rods for DIY Craft Handmade Flowers, Kids Floral Decor Pipe Cleaner, Home Decor in Just',
         image :  '/pin1.png',
@@ -28,6 +51,77 @@ if ( id === "1" ){
     }
 }
 return (
+     
+     <div>
+        <div className="md:h-[170vh] h-[420vh]   ">
+        <div className="w-[100vw] md:h-[15vh] h-[32vh] flex justify-center items-end p-5 pb-0 md:p-0      ">
+            <h1 className=" text-2xl">
+            {product.Heading}
+          </h1>
+        </div>
+         <div className="md:w-[95vw]  md:mt-5 md:ml-7 rounded-lg md:text-center flex md:flex-row flex-col ">
+            <div className="m-2 md:m-0 md:w-[50vw] md:h-[46vh]  p-6 border md:border-r-0 rounded-lg flex ">
+                <p className="no-bungee text-lg ">
+                    {product.Text1}
+                </p>
+            </div>
+            <div className="md:w-[50vw] flex   ">
+               <Image
+               src={product.Handmade}
+               height={650}
+               width={650}
+               alt="Craft Image"
+               className="flex justify-center items-center"
+               />
+            </div>
+         </div>
+         {/* benefits */}
+          <div className="w-[100vw] md:h-[15vh] h-[20vh] flex justify-center items-end p-5 pb-0 md:p-0      ">
+            <h1 className=" text-2xl">
+            {product.Benefits}
+          </h1>
+        </div>
+         <div className="flex p-5 flex justify-center items-center mt-5 ">
+            <p className="w-[90vw] border border-b-0 rounded-lg p-2 no-bungee">
+                {
+                    product.BeDescription
+                }
+            </p>
+         </div>
+         {/* usage */}
+
+           <div className="flex w-[100vw] md:h-[10vh] h-[15vh] flex justify-center items-end p-5 pb-0 md:p-0      ">
+            <h1 className=" text-2xl">
+            {product.Usage}
+          </h1>        
+         </div>
+          <div className="md:w-[95vw]  md:mt-5 md:ml-7 rounded-lg md:text-center flex md:flex-row flex-col ">
+            <div className="m-2 md:m-0 md:w-[50vw] md:h-[46vh] border-b-0 p-5 border md:border-r-0 rounded-lg flex justify-center items-center ">
+                <p className="no-bungee text-lg ">
+                    {product.Using}
+                </p>
+            </div>
+            <div className="md:w-[50vw] flex   ">
+               <Image
+               src={product.pipecleaner}
+               height={650}
+               width={650}
+               alt="Craft Image"
+               className="flex justify-center items-center rounded-xl p-4 md:p-0 "
+               />
+            </div>
+         </div>
+         {/* tip  */}
+         <div>
+            <h1 className="mt-10 ml-10 mb-2 text-2xl">
+                {product.Tip}
+            </h1>
+            <p className="no-bungee w-[90vw] flex ml-10">
+                {product.Tipdes}
+            </p>
+         </div>
+        </div>
+
     <div className="md:h-[100vh] h-[140vh] w-full  flex flex-col md:flex-row ">
     <div className="md:h-[80vh] md:w-1/2 flex items-center justify-center pl-20 pr-20 pt-25  ">
        <Image
@@ -69,8 +163,8 @@ return (
         <div className="w-1/2 flex justify-center ">
         <a href={product.buylink} 
          target="_blank"
-          rel="noopener noreferrer"
-        className="  text-white text-lg bg-blue-500 p-2 rounded-lg">
+         rel="noopener noreferrer"
+         className="  text-white text-lg bg-blue-500 p-2 rounded-lg">
             Buy Now
         </a>
         </div>
@@ -78,6 +172,7 @@ return (
       
       
     </div>
+</div>
   )
 }
 

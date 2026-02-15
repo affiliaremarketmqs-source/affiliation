@@ -30,3 +30,8 @@ body {
   display: none;              /* Chrome, Safari, Opera */
 }
 
+.no-bungee {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, Arial, sans-serif !important;
+}
+
