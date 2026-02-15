@@ -57,10 +57,59 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
   }
 
   return (
-    <main className="overflow-x-hidden"> 
-      <section className="md:h-[170vh] h-[405vh] ">
+    <main className="overflow-x-hidden overflow-y-hidden" style={{ scrollBehavior: 'smooth' }}> 
+     <motion.div
+        className="md:h-[90vh] h-[130vh] w-full flex flex-col md:flex-row"
+        initial={{ opacity: 0, scale: 0.9 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="md:h-[80vh] md:w-1/2 flex items-center justify-center pl-20 pr-20 pt-25">
+          <Image
+            src={product.image}
+            height={350}
+            width={350}
+            alt={product.title}
+            className="object-cover rounded-xl"
+          />
+        </div>
+        <div className="mt-10 md:mt-0 md:h-[85vh] md:w-1/2 flex flex-col md:items-start items-center justify-center">
+          <h1 className="text-xl border p-1 rounded-lg border-b-0 flex">{product.title}</h1>
+          <h2 className="md:w-[28vw] md:mt-10 mt-5 md:text-xl text-[#666666] border border-t-0 border-b-0 rounded-lg text-center">
+            {product.description}
+          </h2>
+          <h3 className="w-1/2 flex justify-center md:ml-5 mt-2 border border-t-0 rounded-lg text-lg">
+            {product.price}
+          </h3>
+          <h4 className="md:mt-15 md:text-white md:bg-black rounded-lg hidden md:flex">
+            {product.buySubHead}
+          </h4>
+          <h5 className="md:hidden flex mt-3 bg-black text-white rounded-lg">
+            {product.mbsubhead}
+          </h5>
+          <p className="md:w-1/2 flex justify-center mt-5">{product.click}</p>
+          <Image
+            src={product.arrowImg}
+            height={100}
+            width={100}
+            alt="Arrow Mark"
+            className="object-cover flex md:ml-32"
+          />
+          <div className="w-1/2 flex justify-center">
+            <a
+              href={product.buylink}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white text-lg bg-blue-500 p-2 rounded-lg hover:bg-blue-300 hover:text-black ml-2"
+            >
+              Buy Now
+            </a>
+          </div>
+        </div>
+      </motion.div>
+      <section className="md:h-[170vh] h-[400vh] ">
         <motion.div
-          className="w-[100vw] md:h-[15vh] h-[32vh] flex justify-center items-end p-5 pb-0 md:p-0"
+          className="w-[100vw] md:h-[5vh] h-[2vh] flex justify-center items-end p-5 pb-0 md:p-0"
           initial={{ opacity: 0, y: -50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -150,55 +199,7 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
         </motion.div>
       </section>
 
-      <motion.div
-        className="md:h-[100vh] h-[140vh] w-full flex flex-col md:flex-row"
-        initial={{ opacity: 0, scale: 0.9 }}
-        whileInView={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 0.8, delay: 0.9 }}
-      >
-        <div className="md:h-[80vh] md:w-1/2 flex items-center justify-center pl-20 pr-20 pt-25">
-          <Image
-            src={product.image}
-            height={350}
-            width={350}
-            alt={product.title}
-            className="object-cover rounded-xl"
-          />
-        </div>
-        <div className="mt-10 md:mt-0 md:h-[85vh] md:w-1/2 flex flex-col md:items-start items-center justify-center">
-          <h1 className="text-xl border p-1 rounded-lg border-b-0 flex">{product.title}</h1>
-          <h2 className="md:w-[28vw] md:mt-10 mt-5 md:text-xl text-[#666666] border border-t-0 border-b-0 rounded-lg text-center">
-            {product.description}
-          </h2>
-          <h3 className="w-1/2 flex justify-center md:ml-5 mt-2 border border-t-0 rounded-lg text-lg">
-            {product.price}
-          </h3>
-          <h4 className="md:mt-15 md:text-white md:bg-black rounded-lg hidden md:flex">
-            {product.buySubHead}
-          </h4>
-          <h5 className="md:hidden flex mt-3 bg-black text-white rounded-lg">
-            {product.mbsubhead}
-          </h5>
-          <p className="md:w-1/2 flex justify-center mt-5">{product.click}</p>
-          <Image
-            src={product.arrowImg}
-            height={100}
-            width={100}
-            alt="Arrow Mark"
-            className="object-cover flex md:ml-32"
-          />
-          <div className="w-1/2 flex justify-center">
-            <a
-              href={product.buylink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white text-lg bg-blue-500 p-2 rounded-lg hover:bg-blue-300 hover:text-black ml-2"
-            >
-              Buy Now
-            </a>
-          </div>
-        </div>
-      </motion.div>
+     
     </main>
   );
 };
