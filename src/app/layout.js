@@ -5,6 +5,7 @@ import Link from "next/link";
 import Shop from "./Shop/page";
 import { HiHome } from "react-icons/hi";
 import { HiTrendingUp } from "react-icons/hi";
+import Image from "next/image";
 
 // Import Bungee with weight 400
 const bungee = Bungee({
@@ -33,7 +34,14 @@ export default function RootLayout({ children }) {
       <body>
         <header className="fixed w-full z-10 flex justify-between items-center bg-white/20 border border-black/20 backdrop-blur-md p-3 rounded-xl">
           <div>
-            <h1 >Luxeallus</h1>
+            <Image
+            src='/Logo.png'
+            height={50}
+            width={50}
+            alt="logo"
+            className="rounded-3xl"
+
+            />
           </div>
 
           {/* categories/trending  */}
@@ -124,9 +132,17 @@ export default function RootLayout({ children }) {
         </header>
 
         {children}
-        <footer className="text-xl text-black font-bold border border-black/20 p-3 rounded-xl ">
-          © 2026 Luxeallus Web Portal. All rights reserved.
-          Under Development
+        <footer className="no-bungee text-xl text-black border border-black/20 p-3 rounded-xl ">
+         <h1>
+           © 2026 Luxeallus Web Portal. All rights reserved.
+         </h1>
+          <h2>
+            Under Development
+          </h2>
+          <h3>
+            This Page Conatains Affilaite links.No Extra Cost To You
+          </h3>
+          
         </footer>
       </body>
     </html>

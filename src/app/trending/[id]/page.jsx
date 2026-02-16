@@ -1,10 +1,20 @@
 'use client';
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { useParams } from 'next/navigation'; // Import useParams
+import { useParams } from 'next/navigation';
+import { useState, useEffect } from 'react'; // Added for hydration fix
 
-const page = () => { // Remove async
-  const { id } = useParams(); // Use useParams to get id
+const page = () => {
+  const { id } = useParams();
+  const [mounted, setMounted] = useState(false); // Added to prevent hydration mismatch
+
+  useEffect(() => {
+    setMounted(true); // Set to true after component mounts
+  }, []);
+
+  if (!mounted) {
+    return null; // Prevent rendering on server to avoid hydration issues
+  }
 
   let product;
   if (id === "1") {
@@ -34,6 +44,10 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
       Tip: '💡 Genuine Tip',
       Tipdes: 'These crafts are at their best when you stop trying to create "perfect" crafts. Combine colours, let yourself be creative and have fun. The charm of these crafts is that every hand made item has been created uniquely!',
       title: 'Pipe Cleaner Flower ',
+      toptitle:'Pipe Cleaner Flower Everyone Is Making Right Now',
+      subtitle:'Trending DIY Craft Kit On Pinterest-Simple,Creative & Beginner Friendly',
+      Trust:'Perfect For Kids, Beginners & Creative Home Decor',
+      guide:'👇ScrollDown To see Why This Simple Craft Is Going Viral And How You Can Make It Too',
       description: '500Pcs Pipe Cleaners Twisting Sticks Soft Chenille Rods for DIY Craft Handmade Flowers, Kids Floral Decor Pipe Cleaner, Home Decor in Just',
       image: '/pin1.png',
       buySubHead: 'To Make Your MindBlowng Craft In Reality ',
@@ -41,7 +55,9 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
       click: ' Click Down To Get',
       arrowImg: '/arrow.png',
       price: 'USD 29.52',
-      buylink: 'https://s.click.aliexpress.com/e/_c3quTinH'
+      buylink: 'https://s.click.aliexpress.com/e/_c3quTinH',
+      beginnerfreindly :'Beginner friendly . No signup required',
+      pricekyneechy:'Affordable DIY Craft Loved On Pinterest',
     }
   } else if (id === "2") {
     product = {
@@ -58,13 +74,65 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
 
   return (
     <main className="overflow-x-hidden overflow-y-hidden" style={{ scrollBehavior: 'smooth' }}> 
+        <motion.div
+          className="w-[100vw] md:h-[15vh] h-[25vh]  flex justify-center items-end "
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h1 className="text-2xl text-white   [text-shadow:_-2px_-2px_0_#000,_2px_-2px_0_#000,_-2px_2px_0_#000,_2px_2px_0_#000] rounded-lg text-center">
+            {product.toptitle}
+          </h1>
+        </motion.div>
+          <motion.div
+            className="w-[100vw] md:h-[5vh] h-[15vh] flex justify-center items-end "
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+          >
+          <h1 className="text-2xl  text-[#666666] border border-b-0 rounded-lg p-1 no-bungee text-center ">
+            {product.subtitle}
+          </h1>
+        </motion.div>
+          <motion.div
+            className="w-[100vw] md:h-[4vh] h-[14vh]  flex justify-center items-end "
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+          >
+          <h1 className="text-2xl  text-[#666666] no-bungee text-center">
+            {product.Trust}
+          </h1>
+        </motion.div>
+          <motion.div
+            className="w-[100vw] md:h-[15vh] h-[38vh] flex justify-end  items-center flex-col "
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+          <h1 className="text-2xl  text-white font-bold no-bungee bg-black rounded-lg p-1 text-center">
+            {product.guide}
+          </h1>
+          <Image
+          src={product.arrowImg}
+           height={100}
+            width={100}
+            alt="Arrow Mark"
+          />
+        </motion.div>
      <motion.div
-        className="md:h-[90vh] h-[125vh] w-full flex flex-col md:flex-row"
+        className="md:h-[80vh] h-[145vh] w-full flex flex-col md:flex-row"
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        <div className="md:h-[80vh] md:w-1/2 flex items-center justify-center pl-20 pr-20 pt-25">
+    
+        <motion.div
+          className="md:h-[55vh] md:w-1/2 flex items-center justify-center pl-20 pr-20 pt-25"
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+        >
           <Image
             src={product.image}
             height={350}
@@ -72,21 +140,29 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
             alt={product.title}
             className="object-cover rounded-xl"
           />
-        </div>
-        <div className="mt-10 md:mt-0 md:h-[85vh] md:w-1/2 flex flex-col md:items-start items-center justify-center">
+        </motion.div>
+        <motion.div
+          className="mt-10 md:mt-0 md:h-[69vh] md:w-1/2 flex flex-col md:items-start items-center justify-center"
+          initial={{ opacity: 0, x: 100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.6, delay: 0.5 }}
+        >
           <h1 className="text-xl border p-1 rounded-lg border-b-0 flex">{product.title}</h1>
-          <h2 className="md:w-[28vw] md:mt-10 mt-5 md:text-xl text-[#666666] border border-t-0 border-b-0 rounded-lg text-center">
+          <h2 className=" md:w-[28vw] md:mt-10 mt-5 md:text-xl text-[#666666] border border-t-0 border-b-0 rounded-lg text-center">
             {product.description}
           </h2>
           <h3 className="w-1/2 flex justify-center md:ml-5 mt-2 border border-t-0 rounded-lg text-lg">
             {product.price}
           </h3>
-          <h4 className="md:mt-15 md:text-white md:bg-black rounded-lg hidden md:flex">
-            {product.buySubHead}
+          <h4 className="text-black no-bungee w-1/2 flex justify-center ml-5 items-center">
+            {product.pricekyneechy}
           </h4>
-          <h5 className="md:hidden flex mt-3 bg-black text-white rounded-lg">
-            {product.mbsubhead}
+          <h5 className="md:mt-15 md:text-white md:bg-black rounded-lg hidden md:flex">
+            {product.buySubHead}
           </h5>
+          <h6 className="md:hidden flex mt-3 bg-black text-white rounded-lg">
+            {product.mbsubhead}
+          </h6>
           <p className="md:w-1/2 flex justify-center mt-5">{product.click}</p>
           <Image
             src={product.arrowImg}
@@ -95,17 +171,20 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
             alt="Arrow Mark"
             className="object-cover flex md:ml-32"
           />
-          <div className="w-1/2 flex justify-center">
+          <div className="w-1/2 flex justify-center flex-col ">
             <a
               href={product.buylink}
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white text-lg bg-blue-500 p-2 rounded-lg hover:bg-blue-300 hover:text-black ml-2"
+              className="text-center text-white text-lg bg-blue-500 p-2 rounded-lg hover:bg-blue-300 hover:text-black ml-2"
             >
               Buy Now
             </a>
+            <p className="no-bungee flex justify-center items-center">
+              {product.beginnerfreindly}
+            </p>
           </div>
-        </div>
+        </motion.div>
       </motion.div>
       <section className="md:h-[170vh] h-[400vh] ">
         <motion.div
