@@ -100,17 +100,17 @@ Creative Crafting on a Budget! There are many different types of flowers, decora
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
           >
-          <h1 className="text-2xl  text-[#666666] no-bungee text-center">
+          <h1 className="text-xl  text-[#666666] no-bungee text-center">
             {product.Trust}
           </h1>
         </motion.div>
           <motion.div
-            className="w-[100vw] md:h-[15vh] h-[38vh] flex justify-end  items-center flex-col "
+            className="w-[100vw] md:h-[20vh] h-[38vh] flex justify-end  items-center flex-col "
             initial={{ opacity: 0, x: 100 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
           >
-          <h1 className="text-2xl  text-white font-bold no-bungee bg-black rounded-lg p-1 text-center">
+          <h1 className="text-2xl  text-white font-bold no-bungee bg-black rounded-lg p-1 text-center  ">
             {product.guide}
           </h1>
           <Image
